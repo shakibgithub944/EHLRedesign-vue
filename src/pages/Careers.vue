@@ -92,14 +92,15 @@
                 <ChevronLeftIcon class="h-4 w-4" />
               </button>
 
-              <button v-for="page in getPageNumbers()" :key="page" @click="changePage(page)" v-show="page !== -1"
-                class="px-4 py-2 rounded-lg font-medium transition-colors" :class="currentPage === page
-                  ? 'bg-blue-600 text-white'
-                  : 'text-gray-700 hover:bg-gray-100'">
-                {{ page }}
-              </button>
-
-              <span v-if="getPageNumbers().includes(-1)" class="px-2 text-gray-500">...</span>
+              <template v-for="page in getPageNumbers()" :key="page + '-btn'">
+                <button v-if="page !== -1" @click="changePage(page)"
+                  class="px-4 py-2 rounded-lg font-medium transition-colors" :class="currentPage === page
+                    ? 'bg-blue-600 text-white'
+                    : 'text-gray-700 hover:bg-gray-100'">
+                  {{ page }}
+                </button>
+                <span v-else class="px-2 text-gray-500">...</span>
+              </template>
 
               <button @click="changePage(currentPage + 1)" :disabled="currentPage === totalPages"
                 class="px-3 py-2 rounded-lg transition-colors hover:text-blue-600 disabled:opacity-50 disabled:cursor-not-allowed">
@@ -164,29 +165,42 @@ const changePage = (page: number) => {
 }
 
 const getPageNumbers = () => {
-  const pages = []
-  const maxPagesToShow = 5
+  const pages: (number | -1)[] = []
 
-  if (totalPages.value <= maxPagesToShow) {
+  if (totalPages.value <= 7) {
+    // Few pages — show all
     for (let i = 1; i <= totalPages.value; i++) {
       pages.push(i)
     }
   } else {
-    const start = Math.max(1, currentPage.value - 2)
-    const end = Math.min(totalPages.value, start + maxPagesToShow - 1)
+    // Always show first page
+    pages.push(1)
+
+    // Show dots after first page if gap exists
+    if (currentPage.value > 4) {
+      pages.push(-1) // ...
+    }
+
+    // Middle window of 3 pages around current page
+    const start = Math.max(2, currentPage.value - 1)
+    const end = Math.min(totalPages.value - 1, currentPage.value + 1)
 
     for (let i = start; i <= end; i++) {
       pages.push(i)
     }
 
-    if (end < totalPages.value) {
-      pages.push(-1) // Ellipsis indicator
-      pages.push(totalPages.value)
+    // Show dots before last page if gap exists
+    if (currentPage.value < totalPages.value - 3) {
+      pages.push(-1) // ...
     }
+
+    // Always show last page
+    pages.push(totalPages.value)
   }
 
   return pages
 }
+
 
 watch(currentPage, fetchData)
 
