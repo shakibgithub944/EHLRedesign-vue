@@ -26,7 +26,7 @@
         <!-- Desktop CTA -->
         <div class="hidden md:block">
           <button
-            class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center">
+            class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded font-medium transition-colors flex items-center">
             <CalendarIcon class="mr-2 h-4 w-4" />
             Book Consultation
           </button>
@@ -35,7 +35,7 @@
         <!-- Mobile menu button -->
         <div class="md:hidden">
           <button @click="isMobileMenuOpen = !isMobileMenuOpen"
-            class="text-gray-600 hover:text-gray-900 focus:outline-none">
+            class="text-gray-600 rounded hover:text-gray-900 focus:outline-none">
             <Bars3Icon v-if="!isMobileMenuOpen" class="h-6 w-6" />
             <XMarkIcon v-else class="h-6 w-6" />
           </button>
@@ -54,7 +54,7 @@
             {{ item.label }}
           </router-link>
           <button
-            class="w-full mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center justify-center">
+            class="w-full mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded font-medium transition-colors flex items-center justify-center">
             <CalendarIcon class="mr-2 h-4 w-4" />
             Book Consultation
           </button>

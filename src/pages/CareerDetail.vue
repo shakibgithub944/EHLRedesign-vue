@@ -4,7 +4,7 @@
       <!-- Breadcrumb -->
       <div class="mb-6">
         <router-link to="/careers">
-          <button class="mb-4 flex items-center text-gray-600 hover:text-gray-900 transition-colors">
+          <button class="mb-4 rounded flex items-center text-gray-600 hover:text-gray-900 transition-colors">
             <ArrowLeftIcon class="mr-2 h-4 w-4" />
             Back to Careers
           </button>
@@ -21,7 +21,7 @@
       <div v-else-if="error || !career" class="text-center py-12">
         <p class="text-red-600 mb-4">Career not found or failed to load.</p>
         <router-link to="/careers">
-          <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
+          <button class="bg-blue-600 rounded hover:bg-blue-700 text-white px-4 py-2">
             Back to Careers
           </button>
         </router-link>
@@ -122,11 +122,11 @@
                 <h3 class="text-lg font-semibold mb-3">Interested in This Career?</h3>
                 <p class="text-gray-600 mb-4">Get personalized guidance from our experts</p>
                 <button
-                  class="w-full mb-3 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                  class="w-full mb-3 rounded bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 transition-colors">
                   Find Related Courses
                 </button>
                 <button
-                  class="w-full border border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-lg transition-colors">
+                  class="w-full border rounded border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-2 transition-colors">
                   Book Career Consultation
                 </button>
               </div>

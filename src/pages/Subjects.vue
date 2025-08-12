@@ -13,7 +13,7 @@
               and career path, ensuring you make informed decisions for a successful future.</p>
             <div class="flex flex-col sm:flex-row gap-4">
               <button
-                class="bg-white text-[#23c465] hover:bg-gray-50 px-6 py-3 rounded-lg font-medium text-lg flex items-center">
+                class="bg-white text-[#23c465] hover:bg-gray-50 px-6 py-3 rounded font-medium text-lg flex items-center">
                 <CalendarIcon class="mr-2 h-5 w-5" />
                 Book Free Consultation
               </button>
@@ -46,7 +46,7 @@
         <!-- Filter Buttons -->
         <div class="flex flex-wrap justify-center gap-4 mb-12">
           <button v-for="category in categories" :key="category.id" @click="selectedCategory = category.id"
-            class="px-6 py-2 rounded-full font-medium transition-colors" :class="selectedCategory === category.id
+            class="px-6 py-2 rounded font-medium transition-colors" :class="selectedCategory === category.id
               ? 'bg-green-500 text-white'
               : 'bg-gray-100 text-gray-700 hover:bg-green-50 hover:text-green-700'">
             {{ category.label }}
@@ -68,7 +68,7 @@
 
         <div v-else-if="error" class="text-center py-12">
           <p class="text-red-600 mb-4">{{ error }}</p>
-          <button @click="fetchData" class="bg-[#23c465] hover:bg-green-700 text-white px-4 py-2 rounded-lg">
+          <button @click="fetchData" class="bg-[#23c465] hover:bg-green-700 text-white px-4 py-2 rounded">
             Retry
           </button>
         </div>
@@ -86,13 +86,13 @@
           <div v-if="totalPages > 1" class="flex justify-center mt-12">
             <nav class="flex items-center space-x-2">
               <button @click="changePage(currentPage - 1)" :disabled="currentPage === 1"
-                class="px-3 py-2 rounded-lg transition-colors hover:text-blue-600 disabled:opacity-50 disabled:cursor-not-allowed">
+                class="px-3 py-2 rounded transition-colors hover:text-blue-600 disabled:opacity-50 disabled:cursor-not-allowed">
                 <ChevronLeftIcon class="h-4 w-4" />
               </button>
 
               <template v-for="page in getPageNumbers()" :key="page + '-btn'">
                 <button v-if="page !== -1" @click="changePage(page)"
-                  class="px-4 py-2 rounded-lg font-medium transition-colors" :class="currentPage === page
+                  class="px-4 py-2 rounded font-medium transition-colors" :class="currentPage === page
                     ? 'bg-green-600 text-white'
                     : 'text-gray-700 hover:bg-gray-100'">
                   {{ page }}
@@ -101,7 +101,7 @@
               </template>
 
               <button @click="changePage(currentPage + 1)" :disabled="currentPage === totalPages"
-                class="px-3 py-2 rounded-lg transition-colors hover:text-blue-600 disabled:opacity-50 disabled:cursor-not-allowed">
+                class="px-3 py-2 rounded transition-colors hover:text-blue-600 disabled:opacity-50 disabled:cursor-not-allowed">
                 <ChevronRightIcon class="h-4 w-4" />
               </button>
             </nav>

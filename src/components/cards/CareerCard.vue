@@ -25,7 +25,7 @@
         </span>
         <router-link :to="`/career/${career.id}`">
           <button
-            class="text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors p-0 h-auto flex items-center">
+            class="text-blue-600 rounded hover:text-blue-700 font-medium text-sm transition-colors p-0 h-auto flex items-center">
             Learn More
             <ArrowRightIcon class="ml-1 h-4 w-4" />
           </button>

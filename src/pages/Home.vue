@@ -14,14 +14,14 @@
             <div class="flex flex-col sm:flex-row gap-4">
               <router-link to="/subjects">
                 <button
-                  class="bg-white text-[#23c465] hover:bg-gray-50 px-6 py-3 rounded-lg font-medium text-lg flex items-center">
+                  class="bg-white rounded text-[#23c465] hover:bg-gray-50 px-6 py-3 font-medium text-lg flex items-center">
                   <BookOpenIcon class="mr-2 h-5 w-5" />
                   Explore Subjects
                 </button>
               </router-link>
               <router-link to="/careers">
                 <button
-                  class="border border-white text-white hover:bg-white hover:text-[#23c465] px-6 py-3 rounded-lg font-medium text-lg flex items-center transition-colors">
+                  class="border border-white text-white hover:bg-white hover:text-[#23c465] px-6 py-3 rounded font-medium text-lg flex items-center transition-colors">
                   <BriefcaseIcon class="mr-2 h-5 w-5" />
                   View Careers
                 </button>

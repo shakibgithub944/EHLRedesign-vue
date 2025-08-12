@@ -4,7 +4,7 @@
       <!-- Breadcrumb -->
       <div class="mb-6">
         <router-link to="/subjects">
-          <button class="mb-4 flex items-center text-gray-600 hover:text-gray-900 transition-colors">
+          <button class="mb-4 roundedflex items-center text-gray-600 hover:text-gray-900 transition-colors">
             <ArrowLeftIcon class="mr-2 h-4 w-4" />
             Back to Subjects
           </button>
@@ -21,7 +21,7 @@
       <div v-else-if="error || !subject" class="text-center py-12">
         <p class="text-red-600 mb-4">Subject not found or failed to load.</p>
         <router-link to="/subjects">
-          <button class="bg-[#23c465] hover:bg-green-700 text-white px-4 py-2 rounded-lg">
+          <button class="bg-[#23c465] hover:bg-green-700 text-white px-4 py-2 rounded">
             Back to Subjects
           </button>
         </router-link>
@@ -109,11 +109,11 @@
                 <h3 class="text-lg font-semibold mb-3">Ready to Get Started?</h3>
                 <p class="text-gray-600 mb-4">Find courses related to this subject</p>
                 <button
-                  class="w-full mb-3 bg-[#23c465] hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors">
+                  class="w-full mb-3 bg-[#23c465] hover:bg-green-700 text-white px-4 py-2 rounded transition-colors">
                   Find Courses
                 </button>
                 <button
-                  class="w-full border border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-lg transition-colors">
+                  class="w-full border border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-2 rounded transition-colors">
                   Book Consultation
                 </button>
               </div>

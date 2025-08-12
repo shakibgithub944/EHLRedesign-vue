@@ -8,12 +8,12 @@
             step towards your dream career. We'll help you find the perfect course and university for your goals.</p>
           <div class="flex flex-col sm:flex-row gap-4">
             <button
-              class="bg-white text-[#23c465] hover:bg-gray-50 px-6 py-3 rounded-lg font-medium text-lg flex items-center">
+              class="bg-white text-[#23c465] hover:bg-gray-50 px-6 py-3 rounded font-medium text-lg flex items-center">
               <CalendarIcon class="mr-2 h-5 w-5" />
               Book Free Consultation
             </button>
             <button
-              class="border border-white text-white hover:bg-white hover:text-[#23c465] px-6 py-3 rounded-lg font-medium text-lg flex items-center transition-colors">
+              class="border border-white text-white hover:bg-white hover:text-[#23c465] px-6 py-3 rounded font-medium text-lg flex items-center transition-colors">
               <PhoneIcon class="mr-2 h-5 w-5" />
               Call Us Now
             </button>
