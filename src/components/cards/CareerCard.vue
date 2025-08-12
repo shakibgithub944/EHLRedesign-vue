@@ -2,7 +2,7 @@
   <div
     class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group cursor-pointer">
     <div class="relative">
-      <img :src="imageUrl" :alt="career.name" class="w-full h-48 object-contain rounded-t-xl"
+      <img :src="imageUrl" :alt="career.name" class="w-full h-48 object-cover object-top rounded-t-xl"
         @error="handleImageError" />
       <div v-if="career.is_popular === 1" class="absolute top-4 right-4">
         <span class="bg-green-500 text-white px-2 py-1 rounded-full text-xs font-medium flex items-center">
