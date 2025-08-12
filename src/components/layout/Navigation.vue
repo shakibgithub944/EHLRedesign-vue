@@ -15,8 +15,8 @@
             <router-link v-for="item in navItems" :key="item.href" :to="item.href"
               class="flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer"
               :class="isActive(item.href)
-                ? 'text-green-600 bg-green-50'
-                : 'text-gray-600 hover:text-green-700 hover:bg-gray-50'">
+                ? 'text-[#e97006] '
+                : 'text-gray-600 hover:text-[#e97006] hover:bg-[#efdece] rounded-xl'">
               <component :is="item.icon" class="h-4 w-4 mr-2" />
               {{ item.label }}
             </router-link>
@@ -26,7 +26,7 @@
         <!-- Desktop CTA -->
         <div class="hidden md:block">
           <button
-            class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded font-medium transition-colors flex items-center">
+            class="bg-[#e97006] hover:bg-[#e97006] text-white px-4 py-2 rounded-xl font-medium transition-colors flex items-center">
             <CalendarIcon class="mr-2 h-4 w-4" />
             Book Consultation
           </button>
@@ -48,13 +48,13 @@
           <router-link v-for="item in navItems" :key="item.href" :to="item.href"
             class="flex items-center px-3 py-2 rounded-md text-base font-medium transition-colors cursor-pointer"
             :class="isActive(item.href)
-              ? 'text-green-600 bg-green-50'
-              : 'text-gray-600 hover:text-green-700 hover:bg-gray-50'" @click="isMobileMenuOpen = false">
+              ? 'text-[#e97006]'
+              : 'text-gray-600 hover:text-[#e97006] hover:bg-[#efdece] rounded-xl'" @click="isMobileMenuOpen = false">
             <component :is="item.icon" class="h-5 w-5 mr-3" />
             {{ item.label }}
           </router-link>
           <button
-            class="w-full mt-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded font-medium transition-colors flex items-center justify-center">
+            class="w-full mt-4 bg-[#e97006] hover:bg-[#efdece] text-white px-4 py-2 rounded-xl font-medium transition-colors flex items-center justify-center">
             <CalendarIcon class="mr-2 h-4 w-4" />
             Book Consultation
           </button>

@@ -1,142 +1,147 @@
 <template>
-  <main class="min-h-screen bg-gray-50 py-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <main class="min-h-screen bg-gray-50 py-10">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+
       <!-- Breadcrumb -->
-      <div class="mb-6">
-        <router-link to="/careers">
-          <button class="mb-4 rounded flex items-center text-gray-600 hover:text-gray-900 transition-colors">
-            <ArrowLeftIcon class="mr-2 h-4 w-4" />
-            Back to Careers
-          </button>
+      <div class="mb-8">
+        <router-link to="/careers"
+          class="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors rounded-md">
+          <ArrowLeftIcon class="mr-2 h-5 w-5" />
+          <span class="font-semibold">Back to Careers</span>
         </router-link>
       </div>
 
-      <div v-if="loading" class="text-center py-12">
-        <div class="inline-flex items-center">
-          <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600 mr-3"></div>
-          <span class="text-lg text-gray-600">Loading career details...</span>
+      <!-- Loading State -->
+      <div v-if="loading" class="text-center py-16">
+        <div class="inline-flex items-center justify-center space-x-4">
+          <div
+            class="animate-spin rounded-full h-8 w-8 border-4 border-t-[#e97006] border-r-[#97c01f] border-b-transparent border-l-transparent"
+            aria-label="Loading spinner"></div>
+          <span class="text-lg font-semibold text-gray-700">Loading career details...</span>
         </div>
       </div>
 
-      <div v-else-if="error || !career" class="text-center py-12">
-        <p class="text-red-600 mb-4">Career not found or failed to load.</p>
+      <!-- Error State -->
+      <div v-else-if="error || !career" class="text-center py-16">
+        <p class="text-[#e97006] text-xl font-semibold mb-6">Career not found or failed to load.</p>
         <router-link to="/careers">
-          <button class="bg-blue-600 rounded hover:bg-blue-700 text-white px-4 py-2">
+          <button
+            class="bg-[#97c01f] hover:bg-[#7fae16] text-white font-semibold px-6 py-3 rounded-lg shadow-md transition">
             Back to Careers
           </button>
         </router-link>
       </div>
 
+      <!-- Career Details -->
       <div v-else>
         <!-- Header -->
-        <div class="mb-8">
-          <div class="flex items-center mb-4">
-            <img :src="imageUrl" :alt="career.name" class="w-16 h-20 object-fit rounded-xl mr-4"
-              @error="handleImageError" />
-            <div>
-              <h1 class="text-4xl font-bold text-gray-900 mb-2">{{ career.name }}</h1>
-              <p class="text-xl text-gray-600">{{ getCareerSector(career.name) }}</p>
-              <div v-if="career.is_popular === 1" class="mt-2">
-                <span
-                  class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium flex items-center w-fit">
-                  <StarIcon class="h-4 w-4 mr-1" />
-                  Popular Career
-                </span>
-              </div>
+        <div class="mb-10 flex items-center gap-6">
+          <img :src="imageUrl" :alt="career.name"
+            class="w-20 h-24 object-cover rounded-xl shadow-md border border-gray-200" @error="handleImageError" />
+          <div>
+            <h1 class="text-5xl font-extrabold text-gray-900 mb-2 tracking-tight">
+              {{ career.name }}
+            </h1>
+            <p class="text-xl text-gray-600 mb-3">{{ getCareerSector(career.name) }}</p>
+            <div v-if="career.is_popular === 1"
+              class="inline-flex items-center gap-2 bg-[#97c01f] text-white px-4 py-1 rounded-full text-sm font-semibold select-none">
+              <StarIcon class="h-5 w-5" />
+              Popular Career
             </div>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
           <!-- Main Content -->
-          <div class="lg:col-span-2 space-y-6">
-            <div v-if="career.overview" class="bg-white rounded-xl shadow-lg p-6">
-              <h2 class="text-2xl font-bold text-gray-900 mb-4">Career Overview</h2>
-              <p class="text-gray-700 leading-relaxed">{{ career.overview }}</p>
-            </div>
+          <div class="lg:col-span-2 space-y-8">
+            <section v-if="career.overview" class="bg-white rounded-2xl shadow-lg p-8">
+              <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-[#e97006] pb-2">Career Overview</h2>
+              <p class="text-gray-700 leading-relaxed whitespace-pre-line">{{ career.overview }}</p>
+            </section>
 
-            <div v-if="career.why_this" class="bg-white rounded-xl shadow-lg p-6">
-              <h2 class="text-2xl font-bold text-gray-900 mb-4">Why Choose This Career?</h2>
-              <div class="space-y-3">
-                <div v-for="(item, index) in career.why_this.split('.').filter(item => item.trim())" :key="index"
-                  class="flex items-start">
-                  <CheckCircleIcon class="h-5 w-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
+            <section v-if="career.why_this" class="bg-white rounded-2xl shadow-lg p-8">
+              <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-[#97c01f] pb-2">Why Choose This Career?
+              </h2>
+              <ul class="space-y-4 list-none">
+                <li v-for="(item, index) in career.why_this.split('.').filter(i => i.trim())" :key="index"
+                  class="flex items-start gap-3">
+                  <CheckCircleIcon class="h-6 w-6 text-[#e97006] flex-shrink-0 mt-1" />
                   <p class="text-gray-700">{{ item.trim() }}.</p>
-                </div>
-              </div>
-            </div>
+                </li>
+              </ul>
+            </section>
 
-            <div v-if="career.requirement" class="bg-white rounded-xl shadow-lg p-6">
-              <h2 class="text-2xl font-bold text-gray-900 mb-4">Requirements & Qualifications</h2>
-              <div class="space-y-3">
-                <div v-for="(item, index) in career.requirement.split(';').filter(item => item.trim())" :key="index"
-                  class="flex items-start">
-                  <div class="w-2 h-2 bg-blue-600 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+            <section v-if="career.requirement" class="bg-white rounded-2xl shadow-lg p-8">
+              <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-[#e97006] pb-2">Requirements &
+                Qualifications</h2>
+              <ul class="space-y-3 list-none">
+                <li v-for="(item, index) in career.requirement.split(';').filter(i => i.trim())" :key="index"
+                  class="flex items-start gap-3">
+                  <span class="w-3 h-3 bg-[#97c01f] rounded-full mt-2 flex-shrink-0"></span>
                   <p class="text-gray-700">{{ item.trim() }}</p>
-                </div>
-              </div>
-            </div>
+                </li>
+              </ul>
+            </section>
           </div>
 
           <!-- Sidebar -->
-          <div class="space-y-6">
-            <div class="bg-white rounded-xl shadow-lg p-6">
-              <h3 class="text-xl font-bold text-gray-900 mb-4">Career Information</h3>
-              <div class="space-y-4">
-                <div class="flex items-center">
-                  <BriefcaseIcon class="h-5 w-5 text-blue-600 mr-3" />
+          <aside class="space-y-10">
+            <section class="bg-white rounded-2xl shadow-lg p-8">
+              <h3 class="text-2xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-3">Career Information</h3>
+              <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                  <BriefcaseIcon class="h-6 w-6 text-[#e97006]" />
                   <div>
-                    <p class="font-medium">Career Field</p>
+                    <p class="font-semibold text-gray-900">Career Field</p>
                     <p class="text-gray-600">{{ getCareerSector(career.name) }}</p>
                   </div>
                 </div>
 
-                <div v-if="career.salary" class="flex items-center">
-                  <CurrencyDollarIcon class="h-5 w-5 text-blue-600 mr-3" />
+                <div v-if="career.salary" class="flex items-center gap-4">
+                  <CurrencyDollarIcon class="h-6 w-6 text-[#97c01f]" />
                   <div>
-                    <p class="font-medium">Expected Salary</p>
+                    <p class="font-semibold text-gray-900">Expected Salary</p>
                     <p class="text-gray-600">{{ career.salary }}</p>
                   </div>
                 </div>
 
-                <div class="flex items-center">
-                  <ClockIcon class="h-5 w-5 text-blue-600 mr-3" />
+                <div class="flex items-center gap-4">
+                  <ClockIcon class="h-6 w-6 text-[#e97006]" />
                   <div>
-                    <p class="font-medium">Status</p>
+                    <p class="font-semibold text-gray-900">Status</p>
                     <p class="text-gray-600">{{ career.status === 1 ? 'Active' : 'Inactive' }}</p>
                   </div>
                 </div>
 
-                <div class="flex items-center">
-                  <HashtagIcon class="h-5 w-5 text-blue-600 mr-3" />
+                <div class="flex items-center gap-4">
+                  <HashtagIcon class="h-6 w-6 text-[#97c01f]" />
                   <div>
-                    <p class="font-medium">Serial Number</p>
+                    <p class="font-semibold text-gray-900">Serial Number</p>
                     <p class="text-gray-600">#{{ career.serial_no }}</p>
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
 
-            <div class="bg-white rounded-xl shadow-lg p-6">
-              <div class="text-center">
-                <h3 class="text-lg font-semibold mb-3">Interested in This Career?</h3>
-                <p class="text-gray-600 mb-4">Get personalized guidance from our experts</p>
-                <button
-                  class="w-full mb-3 rounded bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 transition-colors">
-                  Find Related Courses
-                </button>
-                <button
-                  class="w-full border rounded border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-2 transition-colors">
-                  Book Career Consultation
-                </button>
-              </div>
-            </div>
-          </div>
+            <section class="bg-white rounded-2xl shadow-lg p-8 text-center">
+              <h3 class="text-xl font-semibold mb-4">Interested in This Career?</h3>
+              <p class="text-gray-600 mb-6">Get personalized guidance from our experts</p>
+              <button
+                class="w-full mb-4 rounded-xl bg-[#e97006] hover:bg-[#cf6004] text-white px-5 py-3 font-semibold transition">
+                Find Related Courses
+              </button>
+              <button
+                class="w-full rounded-xl border border-gray-300 hover:bg-gray-50 text-gray-700 px-5 py-3 font-semibold transition">
+                Book Career Consultation
+              </button>
+            </section>
+          </aside>
         </div>
       </div>
     </div>
   </main>
 </template>
+
 
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
