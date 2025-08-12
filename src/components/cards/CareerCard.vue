@@ -20,12 +20,12 @@
         }}
       </p>
       <div class="flex justify-between items-center">
-        <span class="text-[#23c465] font-medium text-sm">
+        <span class="text-[#23c465] font-medium text-sm w-1/2">
           {{ getCareerSector(career.name) }}
         </span>
         <router-link :to="`/career/${career.id}`">
           <button
-            class="text-blue-600 rounded hover:text-blue-700 font-medium text-sm transition-colors p-0 h-auto flex items-center">
+            class="hover:underline text-blue-600 rounded hover:text-blue-700 font-medium text-sm transition-colors p-0 h-auto flex items-center">
             Learn More
             <ArrowRightIcon class="ml-1 h-4 w-4" />
           </button>

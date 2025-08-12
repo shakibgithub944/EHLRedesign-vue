@@ -63,9 +63,9 @@
 
 
     <!-- Search and Filter Section -->
-    <section class="py-16 bg-white">
+    <section class="pt-16 bg-white">
       <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div class="text-center mb-14">
+        <div class="text-center">
           <h2 class="text-3xl lg:text-4xl font-extrabold text-gray-900 mb-3">
             Explore Popular Career Paths
           </h2>
@@ -75,16 +75,16 @@
         </div>
 
         <!-- Search Bar -->
-        <div class="relative max-w-2xl mx-auto mb-10">
+        <!-- <div class="relative max-w-2xl mx-auto mb-10">
           <input v-model="searchQuery" type="search" placeholder="Search careers..." class="w-full pl-14 pr-5 py-2 border-2 border-gray-300 rounded-2xl text-lg font-medium placeholder-gray-400
                outline-none transition focus:border-[#e97006] focus:ring-4 focus:ring-[#e97006]/30"
             aria-label="Search careers" />
           <MagnifyingGlassIcon
             class="absolute left-5 top-1/2 transform -translate-y-1/2 text-[#97c01f] h-6 w-6 pointer-events-none" />
-        </div>
+        </div> -->
 
         <!-- Filter Buttons -->
-        <div class="flex flex-wrap justify-center gap-5">
+        <!-- <div class="flex flex-wrap justify-center gap-5">
           <button v-for="category in categories" :key="category.id" @click="selectedCategory = category.id" :class="selectedCategory === category.id
             ? 'bg-[#e97006] text-white shadow-lg'
             : 'bg-gray-100 text-gray-800 hover:bg-[#97c01f] hover:text-white transition'"
@@ -92,7 +92,7 @@
             :aria-pressed="selectedCategory === category.id">
             {{ category.label }}
           </button>
-        </div>
+        </div> -->
       </div>
     </section>
 

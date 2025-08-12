@@ -48,9 +48,9 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div>
           <!-- Main Content -->
-          <section class="lg:col-span-2 space-y-8">
+          <!-- <section class="lg:col-span-2 space-y-8">
             <div v-if="subject.overview" class="bg-white rounded-2xl shadow-lg p-8">
               <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-[#e97006] pb-2">Overview</h2>
               <p class="text-gray-700 leading-relaxed whitespace-pre-line">{{ subject.overview }}</p>
@@ -78,10 +78,10 @@
                 </li>
               </ul>
             </div>
-          </section>
+          </section> -->
 
           <!-- Sidebar -->
-          <aside class="space-y-10">
+          <aside class="grid grid-cols-1 lg:grid-cols-2 gap-10 py-16">
             <section class="bg-white rounded-2xl shadow-lg p-8">
               <h3 class="text-2xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-3">Quick Information</h3>
               <div class="space-y-6">

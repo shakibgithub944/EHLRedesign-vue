@@ -43,11 +43,11 @@
 
 
 
-    <section class="pt-16 bg-[#fdfbf7]">
+    <section class="py-16 bg-[#fdfbf7]">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
         <!-- Heading -->
-        <div class="text-center mb-12">
+        <div class="text-center">
           <h2 class="text-4xl font-extrabold text-gray-900 mb-4">
             Explore <span class="text-[#e97006]">Popular Subjects</span>
           </h2>
@@ -57,21 +57,21 @@
         </div>
 
         <!-- Search Bar -->
-        <div class="relative max-w-2xl mx-auto mb-10">
+        <!-- <div class="relative max-w-2xl mx-auto mb-10">
           <input v-model="searchQuery" type="text" placeholder="Search subjects..."
             class="w-full pl-12 pr-4 py-2 border border-gray-300 rounded-xl shadow-sm text-lg focus:border-[#97c01f] focus:ring-2 focus:ring-[#97c01f] outline-none transition-all" />
           <MagnifyingGlassIcon class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-        </div>
+        </div> -->
 
         <!-- Filter Buttons -->
-        <div class="flex flex-wrap justify-center gap-3 mb-12">
+        <!-- <div class="flex flex-wrap justify-center gap-3 mb-12">
           <button v-for="category in categories" :key="category.id" @click="selectedCategory = category.id"
             class="px-6 py-2 rounded-full font-medium text-sm border transition-all duration-200" :class="selectedCategory === category.id
               ? 'bg-[#97c01f] text-white border-[#97c01f] shadow-md'
               : 'bg-white text-gray-700 border-gray-200 hover:border-[#e97006] hover:text-[#e97006]'">
             {{ category.label }}
           </button>
-        </div>
+        </div> -->
 
       </div>
     </section>

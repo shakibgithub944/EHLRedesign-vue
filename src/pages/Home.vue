@@ -26,7 +26,7 @@
                 <button
                   class="flex items-center gap-2 bg-[#e97006] text-white font-semibold px-6 py-3 rounded-xl shadow hover:bg-[#cf6004] transition">
                   <BookOpenIcon class="w-5 h-5" />
-                  Explore Subjects
+                  Popular Subjects
                 </button>
               </router-link>
 
@@ -34,7 +34,7 @@
                 <button
                   class="flex items-center gap-2 border-2 border-[#97c01f] text-[#97c01f] font-semibold px-6 py-3 rounded-xl hover:bg-[#97c01f] hover:text-white transition">
                   <BriefcaseIcon class="w-5 h-5" />
-                  View Careers
+                  Future Careers
                 </button>
               </router-link>
             </div>
