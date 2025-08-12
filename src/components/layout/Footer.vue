@@ -95,15 +95,15 @@ import { EnvelopeIcon, PhoneIcon, MapPinIcon } from '@heroicons/vue/24/outline'
 const quickLinks = [
   { href: '/subjects', label: 'Popular Subjects' },
   { href: '/careers', label: 'Future Careers' },
-  { href: '/course-finder', label: 'Course Finder' },
-  { href: '/apply', label: 'Apply Online' },
+  { href: '#', label: 'Course Finder' },
+  { href: '#', label: 'Apply Online' },
 ]
 
 const services = [
-  { href: '/consultation', label: 'Consultation' },
-  { href: '/applications', label: 'University Applications' },
-  { href: '/visa', label: 'Visa Guidance' },
-  { href: '/counseling', label: 'Career Counseling' },
+  { href: '#', label: 'Consultation' },
+  { href: '#', label: 'University Applications' },
+  { href: '#', label: 'Visa Guidance' },
+  { href: '#', label: 'Career Counseling' },
 ]
 
 const socialLinks = [

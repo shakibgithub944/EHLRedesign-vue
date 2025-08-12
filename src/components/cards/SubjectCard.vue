@@ -1,31 +1,35 @@
 <template>
-  <div
-    class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group cursor-pointer">
-    <div class="p-6">
-      <div
-        :class="`w-16 h-16 bg-gradient-to-br ${gradientClass} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`">
-        <component :is="getSubjectIcon(subject.subject_area)" class="text-white text-2xl w-8 h-8" />
-      </div>
-      <h3 class="text-xl font-semibold text-gray-900 mb-2">
-        {{ subject.subject_area }}
-      </h3>
-      <p class="text-gray-600 mb-4 text-sm">
-        {{ subject.subject_area_department?.name || 'Department' }}
-      </p>
-      <div class="flex justify-between items-center">
-        <router-link :to="`/subject/${subject.id}`">
+  <router-link :to="`/subject/${subject.id}`">
+    <div
+      class="bg-white h-52 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group cursor-pointer">
+      <div class="p-6">
+        <div
+          :class="`w-16 h-16 bg-gradient-to-br ${gradientClass} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`">
+          <component :is="getSubjectIcon(subject.subject_area)" class="text-white text-2xl w-8 h-8" />
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">
+          {{ subject.subject_area }}
+        </h3>
+        <p class="text-gray-600 mb-4 text-sm">
+          {{ subject.subject_area_department?.name || 'Department' }}
+        </p>
+        <div class="flex justify-between items-center">
+          <div class=""></div>
+          <!-- <button class="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded text-sm transition-colors">
+          Find Courses
+        </button> -->
+          <!-- <router-link :to="`/subject/${subject.id}`">
           <button
             class="text-[#23c465] hover:text-green-700 font-medium text-sm transition-colors p-0 h-auto flex items-center">
             Learn More
             <ArrowRightIcon class="ml-1 h-4 w-4" />
           </button>
-        </router-link>
-        <button class="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded text-sm transition-colors">
-          Find Courses
-        </button>
+        </router-link> -->
+
+        </div>
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script setup lang="ts">
